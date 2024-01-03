@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "statax"
+version = "0.0.1"
+description = "Yet another stateful library for JAX."
+readme = "README.md"
+requires-python =">=3.9"
+license = {file = "LICENSE"}
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+]
+authors = [
+  {name = "Oliver Neill", email = "o.neill.1@research.gla.ac.uk"},
+]
+urls = {repository = "https://github.com/odneill/statax"}
+dependencies = [
+  "jax>=0.4.13",
+]
+
+[packages.find]
+where = ["src"]
+include = ["statax*"]
+
+[tool.ruff]
+preview = true
+exclude = [
+  ".git",
+  "dev",
+  "__pycache__",
+]
+line-length = 88
+indent-width = 2
+select = [
+  "B9", # raise full stack traces, and strict zip
+  "C", # mccabe complexity, flake comprehensions
+  "E",
+  "F",
+  "I",
+  "W", # code style warnings
+  "YTT",
+]
+ignore = [
+  "E111", # Indentation not multiple 4
+  "E114", # Indentation not multiple 4 in comments
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
